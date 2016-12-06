@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Seleccione el Tomo - Formoid css form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="blurBg-false" style="background-color:#ffffff">
+
+
+
+
+<!-- Start Formoid form-->
+<link rel="stylesheet" href="formoid_files/formoid1/formoid-solid-dark.css" type="text/css" />
+<script type="text/javascript" src="formoid_files/formoid1/jquery.min.js"></script>
+<form id="formoid-solid-dark"  class="formoid-solid-dark" style=" display:none; background-color:#1A2223;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:50px;min-width:50px" method="post"><div class="title"><h2>Seleccione el Tomo</h2></div>
+	<div class="element-select"><label class="title"></label><div class="item-cont"><div class="large"><span><select name="select" >
+
+		<option value="Tomo 1">Tomo 1</option>
+		<option value="Tomo 2">Tomo 2</option>
+		<option value="Tomo 3 ">Tomo 3 </option>
+		<option value="Tomo 4 ">Tomo 4 </option>
+		<option value="Tomo 5 ">Tomo 5 </option>
+		<option value="Tomo 6">Tomo 6</option></select><i></i><span class="icon-place"></span></span></div></div></div>
+<div class="submit"><input type="submit" value="Listo!"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">css form</a> Formoid.com 2.9</p><script type="text/javascript" src="formoid_files/formoid1/formoid-solid-dark.js"></script>
+<div>
+
+<script type="text/javascript">
+
+function mostrar(){
+var formulario = document.getElementById('formoid-solid-dark');
+formulario.style.display ="inline";
+}
+
+
+</script>
+
+<a href="#">Busqueda Avanzada<input type="image"  src="close.png" style="width:15px; height:15px" onclick="mostrar();" > </a></div>
+
+
+
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+
+function closeHandler() {
+  Enabler.reportManualClose(); 
+  Enabler.close();
+}
+document.getElementById('submit').addEventListener('click', closeHandler, false);
+</script>
+
+
+
+</body>
+</html>
