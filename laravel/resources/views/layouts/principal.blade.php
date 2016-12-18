@@ -34,7 +34,7 @@
 
 <div style="
 	position: absolute;	
-	left: 290px;
+	left: 285px;
 	top: 20px;
 	z-index: 3;
 	font-family: 'Corben', Georgia, Times, serif;
@@ -48,19 +48,36 @@
 <!--// Icono del ICC////-->
 
 	<a style= "position: absolute;
-	left: 110px;  
+	left: 50px;  
 	z-index:2;
 	top:3px;"
 	><img typeof="floafoaf:Image" src="http://www.caroycuervo.gov.co/sites/all/themes/openpublic_icc/logo.png" alt=" logo" /></a> 
+
+
+	<!--// Icono de la Universidad////-->
+
+	<a style= "position: absolute;
+	left: 130px;  
+	z-index:50;
+	;"
+
+	><img style= "position: absolute;
+	left:2px;  
+	z-index:50;
+	top:0px;
+	width:100px;
+	height:100px;" typeof="floafoaf:Image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Escudo_UD.svg/240px-Escudo_UD.svg.png" alt=" logo" /></a> 
 
 	
 
 <!--// Posicion de las letras SIG//-->
 
 	<p style="position: absolute;
-	left: 115px;
+	left: 50px;
 	z-index: 1;
-	top: 75px;"> SIG ALEC </p>
+	top: 75px;
+	font-family: georgia;"
+	> SIG ALEC </p>
 	   
 <br><br>
   

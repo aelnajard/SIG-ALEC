@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title></title>
 
     {!!Html::style("css/bootstrap.min.css")!!}
@@ -17,18 +18,20 @@
 
 <body>
 
-    <div id="wrapper">
+  
 
-        
+        <div id="grad1">
         <nav class="Parte_Sup" role="navigation">
+       
+
             <div class="navbar-header">
        
-                <a class="titulo" href="index.html" style="text-decoration: none; position: absolute; color:white">SIG-ALEC</a>
+                <a class="titulo" href="{!!URL::to('/contacto')!!}" style="text-decoration: none; float:left; color:white; font-family: georgia;">SIG-ALEC</a>
 
              <ul class="nav navbar-top-links navbar-right" style="margin-left:1220px; color:white;">
                  <li class="dropdon">
-                    <a class="dropdown-inicio" style="color:#6E6E6E;font-family: 'Corben', Georgia, Times, serif; z-index:3000; width: 140px; height: 90px; text-decoration: none"  data-toggle="dropdown" href="#">
-                    {!!Auth::user()->name!!}<br><i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <a class="dropdown-inicio" style="color:black;font-family: 'Corben', Georgia, Times, serif; z-index:3000; width: 140px; height: 90px; text-decoration: none"  data-toggle="dropdown" href="#">
+                   {!!Auth::user()->name!!} <br><i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
@@ -44,7 +47,8 @@
             </div>
         
         </nav>
-       
+
+        </div>
 <!--Sidenav-->
 
 
@@ -86,15 +90,15 @@
             <div class="link"><i class="fa fa-users fa-fw"></i>Usuario<i class="fa fa-chevron-down"></i></div>
              <ul class="submenu">
 
-                <li><a href="{!!URL::to('/usuario/create')!!}">Adicionar<i  class="fa fa-chevron-down"></i></a></li>
+                <li><a href="{!!URL::to('/form_cargar_datos_usuarios')!!}">Adicionar<i  class="fa fa-chevron-down"></i></a></li>
                 <li><a href="{!!URL::to('/usuario')!!}">Listar Usuarios</a></li>
              </ul>
         </li>
         <li>
             <div class="link"><i class="fa fa-user"></i>Informante<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-                <li><a href="#">Adicionar</a></li>
-                 <li><a href="#">Listar</a></li>
+                <li><a href="{!!URL::to('/informante/create')!!}">Adicionar</a></li>
+                 <li><a href="{!!URL::to('/informante')!!}">Listar</a></li>
 
                 
             </ul>
@@ -170,6 +174,13 @@ function closeNav() {
 {!!Html::script("js/bootstrap.min.js")!!}
 {!!Html::script("js/metisMenu.min.js")!!}
 {!!Html::script("js/sb-admin-2.js")!!}
+{!!Html::script("js/informante.js")!!}
+
+
+
+
+    
+   
 
       <div>
     

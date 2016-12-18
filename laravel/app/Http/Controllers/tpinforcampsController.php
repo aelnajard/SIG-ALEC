@@ -1,14 +1,16 @@
 <?php
 
 namespace Cinema\Http\Controllers;
+
 use Illuminate\Http\Request;
+
 use Cinema\Http\Requests;
-use Cinema\Http\Requests\UserCreateRequest;
-use Cinema\Http\Requests\UserUpdateRequest;
 use Cinema\Http\Controllers\Controller;
 use Cinema\User;
 use Cinema\informante;
-use Cinema\localidad; /**llamando el modelo*/
+use Cinema\localidad; 
+use Cinema\tpinforcamp; /**llamando el modelo*/
+use Cinema\camposem;
 use Session;
 use Redirect;
 use Excel;
@@ -16,52 +18,19 @@ use Storage;
 use load;
 use save;
 
-class informantelocaController extends Controller
+class tpinforcampsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-
-
-  public function index(){
-       
-       
-
+    public function index()
+    {
+        //
     }
-
-
-   public function form_informante($id = null)
-
-   {
-    
-    $user=User::find($id);
-    $localidad=localidad::all();
-    $informante=informante::all();
-    $encuentra= informante::all();
-
-       return view("formularios.informante")
-       ->with("localidad",$localidad)
-       ->with("informante",$informante)
-       ->with("encuentra",$encuentra );
-       
-
-
-    }
-
-
-   
 
     /**
-
-
-
-
-
-
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -77,10 +46,41 @@ class informantelocaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+
+
+
+    public function store(Request $request) 
     {
-        //
+    
+    $loop = $request->get('id_campo_semantico');
+    foreach ($loop as $value){
+        $resortfacility = new tpinforcamp;
+        $resortfacility->id_informante = $request ->get('id_informante');
+        $resortfacility->id_campo_semantico = $value;
+        $resortfacility->save();
     }
+  
+    
+    }
+
+
+    public function locamodal($id_informante)
+ 
+    {
+             
+      $tp_inform_camposema = informante::find($id_informante)->camposeman;        
+
+        return response()->json($tp_inform_camposema);
+          
+    
+    }
+
+
+
+
+
+
 
     /**
      * Display the specified resource.

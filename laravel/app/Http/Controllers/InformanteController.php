@@ -8,13 +8,17 @@ use Cinema\Http\Requests\UserUpdateRequest;
 use Cinema\Http\Controllers\Controller;
 use Cinema\User;
 use Cinema\informante;
-use Cinema\localidad; /**llamando el modelo*/
+use Cinema\localidad; 
+use Cinema\tpinforcamp; /**llamando el modelo*/
+use Cinema\camposem;
 use Session;
 use Redirect;
 use Excel;
 use Storage;
 use load;
 use save;
+use Input;
+use DB;
 
 class InformanteController extends Controller
 {
@@ -25,13 +29,16 @@ class InformanteController extends Controller
      */
     public function index( request $request)
     {
-
-   $informaantes = Informante::infor($request->get('infor'))->OrderBy('id_informante', 'Asc')->paginate(20);
+           
+      $localidad=localidad::all();
+      $camposema= camposem::orderBy('id_tomo','Asc')->get();
+      $informaantes = Informante::infor($request->get('infor'))->OrderBy('id_informante', 'Asc')->paginate(40);
+      
        /** $users =  User::paginate(20);*/
 
         
 
-        return view('informante.index_info', compact('informaantes')); 
+        return view('informante.index_info', compact('informaantes','localidad','camposema')); 
     } 
 
  
@@ -42,18 +49,19 @@ class InformanteController extends Controller
      */
     public function create($id=null)
     {
-     $user=User::find($id);
+    $user=User::find($id);
     $localidad=localidad::all();
     $informante=informante::all();
-    $encuentra= informante::all();
+    $camposema= camposem::orderBy('id_tomo','Asc')->get();
     $localidad_form = localidad::orderBy('idlocalida','Asc')->get()->lists('idlocalida','idlocalida' );
+   
 
 
-       return view("informante.create_info", compact('localidad_form'))
+       return view("informante.create_info", compact('localidad_form','camposema'))
        ->with("localidad",$localidad)
        ->with("informante",$informante)
-       ->with("encuentra",$encuentra );
-       
+       ->with("camposema",$camposema );
+        
     }
 
     /**
@@ -85,28 +93,44 @@ class InformanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+   
     public function store(Request $request)
     {
-       informante::create([
-            "id_informante"  => $request ["id_informante"],
-            "idlocalida"  => $request ["id_localidad"],
-            "infomante"  => $request ["numero_informante"],
-            "nombres_informante"  => $request ["nombres"],
-            "apellidos_informante"  => $request ["apellidos"],
-            "edad_informante"  => $request ["edad"],
-            "genero"  => $request ["genero"],
-            "ocupacion"  => $request ["ocupacion"],
-            "nivel_de_escolaridad"  => $request ["nivel_de_escolaridad"],
-            "proveniencia"  => $request ["proveniencia"],
-            "proveniencia_de_los_padres"  => $request ["proveniencia_de_los_padres"],
-            "proveniencia_del_conyugue"  => $request ["proveniencia_del_conyugue"],
-            "viajes"  => $request["viajes"],
-            ]);
+
+   
+    $informante = new informante;           // maybe some validation here...
+
+            $informante->id_informante = Input::get('id_informante');
+            $informante->idlocalida = Input::get('id_localidad');
+            $informante->infomante = Input::get('numero_informante');
+            $informante->nombres_informante = Input::get('nombres');
+            $informante->apellidos_informante = Input::get('apellidos');
+            $informante->edad_informante = Input::get('edad');
+            $informante->genero = Input::get('genero');
+            $informante->ocupacion = Input::get('ocupacion');
+            $informante->nivel_de_escolaridad = Input::get('nivel_de_escolaridad');
+            $informante->proveniencia = Input::get('proveniencia');
+            $informante->proveniencia_de_los_padres = Input::get('proveniencia_de_los_padres');
+            $informante->proveniencia_del_conyugue = Input::get('proveniencia_del_conyugue');
+            $informante->viajes = Input::get('viajes');
+            $informante->save();
+            
+            $loop  = Input::get('id_campo_semantico');
+             foreach ($loop as $value){
+            $resortfacility = new tpinforcamp;
+            $resortfacility->id_informante = Input::get('id_informante');
+            $resortfacility->id_campo_semantico = $value;
+            $resortfacility->save();
+          }
+          
+            
+
+
 
          return redirect('/informante')->with('message','Informante Agregado Satisfactoriamente');
 
     }
-    
+     
 
     /**
      * Display the specified resource.
@@ -125,15 +149,33 @@ class InformanteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_informante)
     {
         $localidad_form = localidad::orderBy('idlocalida','Asc')->get()->lists('idlocalida','idlocalida' );
-        $informantess = informante::find($id);
+        $informantess = informante::find($id_informante);
+        $informantesq = informante::find($id_informante)->camposeman;
+        $camposema= camposem::orderBy('id_tomo','Asc')->get();
        
-        return view("informante.edit_info", compact('localidad_form'))
-       ->with("informantess", $informantess);
+
+        return view("informante.edit_info", compact('localidad_form','tpinforcamps','associated_itens'))
+      ->with("informantess", $informantess)
+      ->with("informantesq", $informantesq)
+      ->with("camposema",$camposema );
        
     }
+
+
+       public function locamodal($idlocalida)
+ 
+    {
+      
+      $localidad = localidad::find($idlocalida);          
+      return response()->json($localidad);
+    }
+
+
+
+    
 
 
     /**
@@ -143,11 +185,17 @@ class InformanteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_informante)
     {
-        $informantess = informante::find($id);
-        $informantess->fill($request->all());
+        $informantess = informante::find($id_informante);
+        $informantesq = tpinforcamp::find($id_informante);
+
+        $informantess->fill($request->all());  
+
+        $informantesq->save();
         $informantess->save();
+
+
         Session::flash('message','Informante Editado Correctamente');
         return Redirect::to('/informante');
     }
@@ -158,9 +206,14 @@ class InformanteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_informante)
     {
-        //
+         tpinforcamp::destroy($id_informante);
+         informante::destroy($id_informante);
+
+         Session::flash('message','Informante Eliminado Correctamente');
+        return Redirect::to('/informante');
+
     }
 
 
@@ -172,14 +225,16 @@ class InformanteController extends Controller
        $r1=Storage::disk('archivos')->put($nombre_original,  \File::get($archivo) );
        $ruta  =  storage_path('archivos') ."/". $nombre_original;
        
-       if($r1){
+      
+
+  if($r1){
             
-            Excel::selectSheetsByIndex(0)->load($ruta, function($hoja) {
+            Excel::selectSheetsByIndex(0)->load($ruta, function($hojas) {
                 
-                $hoja->each(function($fila) {
-                    $informantes_id=Informante::where("id_informante","=",$fila->Idinformante)->first();
+                $hojas->each(function($fila) {
+                    $informantes_id=Informante::where("id_informante","=",$fila->idinformante)->first();
                     if(count($informantes_id)==0){
-                        $informante=new Informante;
+                        $informante=new Informante;                        
                         $informante->idlocalida= $fila->idlocalidad;
                         $informante->id_informante= $fila->idinformante;
                         $informante->infomante= $fila->informante;
@@ -219,6 +274,47 @@ class InformanteController extends Controller
             Session::flash('message-error','Informantes no han sido agregados Correctamente');
        }
 
+
+
+    if($r1){
             
+            Excel::selectSheetsByIndex(0)->load($ruta, function($hojas) {
+                
+                $hojas->each(function($fila) {
+                    $usersemails=tpinforcamp::where("id_informante","=",$fila->email)->first();
+                    if(count( $usersemails)==0){
+                        $usuario=new tpinforcamp;
+                        $usuario->id_campo_semantico= $fila->idcampsem;
+                        //$usuario->apellidos= $fila->apellidos;
+                        $usuario->id_informante= $fila->idinformante;
+                        //$usuario->telefono= $fila->telefono; //este campo llamado telefono se debe agregar en la base de datos c
+                        //$usuario->pais= $fila->pais;
+                        //$usuario->ciudad= $fila->ciudad;
+                        //$usuario->institucion= $fila->institucion;
+                       // $usuario->ocupacion= $fila->ocupacion;
+                       // $usuario->password= bcrypt($fila->password);
+
+                        $usuario->save();
+                        Session::flash('message','Informantes Editado Correctamente');
+                    }
+             
+
+                });
+
+       
+
+            });
+
+              Session::flash('message','Informantes agregados Correctamente');
+        
        }
+       else
+       {
+            Session::flash('message-error','Informantes no han sido agregados Correctamente');
+       }
+
+
+  }
+
+
 }

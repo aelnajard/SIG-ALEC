@@ -12,6 +12,7 @@
 	</div>
 
 
+
 	<div class="form-group">
 		{!!Form::label('nombre','Número Informante:', ['style' => 'top:0px;font-size:14px;margin-left: 10%'])!!}
 		{!!Form::number('numero_informante',null,['class'=>'form-control','style' => 'margin-top: 10px;font-size: 14px; color:#0B0B61;margin-left: 20%;width: 800px','placeholder'=>'Ingrese el Número de Informante'])!!}
@@ -20,11 +21,6 @@
 		{!!Form::label('nombre','Nombres :', ['style' => 'top:0px;font-size:14px;margin-left: 10%'])!!}
 		{!!Form::text('nombres',null,['class'=>'form-control','style' => 'margin-top: 10px;font-size: 14px; color:#0B0B61;margin-left: 20%;width: 800px','placeholder'=>'Ingresa los Nombres del Informante'])!!}
 	</div>
-
-	
-
-
-
 
 	<div class="form-group">
 		{!!Form::label('nombre','Apellidos :', ['style' => 'top:0px;font-size:14px;margin-left: 10%'])!!}
@@ -49,7 +45,7 @@
 
 	<div class="form-group">
 		{!!Form::label('email','Ocupación:',  ['style' => 'top: 15px;font-size: 14px;margin-left: 10%'])!!}
-		{!!Form::text('ocupación',null,['class'=>'form-control', 'style' => 'top:10px;font-size: 14px; color:#0B0B61;margin-left: 20%;width: 800px', 'placeholder'=>'Ingresa la Ocupación del Informante'])!!}
+		{!!Form::text('ocupacion',null,['class'=>'form-control', 'style' => 'top:10px;font-size: 14px; color:#0B0B61;margin-left: 20%;width: 800px', 'placeholder'=>'Ingresa la Ocupación del Informante'])!!}
 	</div>
 	<div class="form-group">
 		{!!Form::label('email','Nivel de Escolaridad :',  ['style' => 'top: 15px;font-size: 14px;margin-left: 10%'])!!}
