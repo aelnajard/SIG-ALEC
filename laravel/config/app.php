@@ -113,6 +113,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -145,6 +146,13 @@ return [
         Cinema\Providers\EventServiceProvider::class,
         Cinema\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+
+
+        /*
+         * Exportar Excel..
+         */
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
 
     ],
 
@@ -196,6 +204,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

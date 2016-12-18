@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class informante extends Model
 {
     protected $table = 'informante';
+    
 
 
    
@@ -27,10 +28,14 @@ class informante extends Model
             "viajes"
             ];
 
+    public $incrementing = false;
+ 
+    protected $primaryKey = 'id_informante';
 
+    
+   
 
-
-     public function scopeInfor($query, $infor)
+    public function scopeInfor($query, $infor)
 
     {
         if (trim($infor)  != "")
@@ -39,11 +44,23 @@ class informante extends Model
                  $query->where('nombres_informante',"LIKE", "%$infor%");
 
         }
-
-   
-
-
     }
+
+
+       public function tp_inform_camposema()
+    {
+        return $this->hasMany('Cinema\tpinforcamp', 'id_informante', 'id_informante');
+    }
+
+
+
+     public function camposeman()
+
+     {
+
+    return $this->belongsToMany('Cinema\camposem','tp_informante_campo_semantico','id_informante','id_campo_semantico');
+
+     }
 
 
 }

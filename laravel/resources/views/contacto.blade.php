@@ -194,12 +194,14 @@
 				
 			</ul>
 		</li>
+		@if(Auth::user()->id < 3)
 		<li><div class="link"><i class="fa fa-pencil"></i>Ingresar Laminas<i class="fa fa-chevron-down"></i></div>
 			<ul class="submenu">
 				<li><a href="{!!URL::to('/admin')!!}">Ingresar</a></li>
 							
 			</ul>
 		</li>
+		@endif
 	</ul>
   <!-- Scripts -->
 	<script src="leaflet/menu/js/jquery.min.js"></script>

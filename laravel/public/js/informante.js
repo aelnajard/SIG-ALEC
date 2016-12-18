@@ -1,12 +1,20 @@
 function localidad_mostrar(){
 
 document.getElementById('seccion_informante').style.display = 'block';
-document.getElementById('seccion_localidad').style.display = 'none';}
+document.getElementById('seccion_localidad').style.display = 'none';
+document.getElementById('seccion_campo_semantico').style.display = 'none';}
 
 
 function informante_mostrar(){
 document.getElementById('seccion_informante').style.display = 'none';
-document.getElementById('seccion_localidad').style.display = 'block';}
+document.getElementById('seccion_localidad').style.display = 'block';
+document.getElementById('seccion_campo_semantico').style.display = 'none';}
+
+
+function camposeman_mostrar(){
+document.getElementById('seccion_informante').style.display = 'none';
+document.getElementById('seccion_localidad').style.display = 'none';
+document.getElementById('seccion_campo_semantico').style.display = 'block';}
 
 
 //  <select id="localidad" name="tipo_educacion" class="form-control" style="height: 40px">

@@ -12,12 +12,29 @@
 */
 
 Route::get('/','FrontController@index');
-Route::get('contacto','FrontController@contacto');
+Route::resource('contacto','FrontController@contacto');
 Route::get('reviews','FrontController@reviews');
 Route::get('admin','FrontController@admin');
+
 
 Route::resource('usuario','usuariocontroller');
 
 Route::resource('log','LogController');
 
 Route::get('logout','LogController@logout');
+
+Route::get('form_cargar_datos_usuarios', 'usuariocontroller@form_cargar_datos_usuarios');
+Route::resource('cargar_datos_usuarios', 'usuariocontroller@cargar_datos_usuarios');
+
+
+
+Route::resource('informante','InformanteController');
+Route::POST('informante/cargar_datos_informante', 'InformanteController@cargar_datos_informante');
+Route::resource('informantes','InformanteController@locamodal');
+
+
+
+
+Route::resource('tpinforcamps','tpinforcampsController');
+Route::resource('informantescamp','tpinforcampsController@locamodal');
+
