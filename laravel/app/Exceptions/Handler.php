@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Exceptions;
+namespace SIGALEC\Exceptions;
 
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

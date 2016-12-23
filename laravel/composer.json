@@ -21,7 +21,7 @@
             "database"
         ],
         "psr-4": {
-            "Cinema\\": "app/"
+            "SIGALEC\\": "app/"
         }
     },
     "autoload-dev": {

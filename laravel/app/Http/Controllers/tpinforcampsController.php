@@ -1,16 +1,16 @@
 <?php
 
-namespace Cinema\Http\Controllers;
+namespace SIGALEC\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Cinema\Http\Requests;
-use Cinema\Http\Controllers\Controller;
-use Cinema\User;
-use Cinema\informante;
-use Cinema\localidad; 
-use Cinema\tpinforcamp; /**llamando el modelo*/
-use Cinema\camposem;
+use SIGALEC\Http\Requests;
+use SIGALEC\Http\Controllers\Controller;
+use SIGALEC\User;
+use SIGALEC\informante;
+use SIGALEC\localidad; 
+use SIGALEC\tpinforcamp; /**llamando el modelo*/
+use SIGALEC\camposem;
 use Session;
 use Redirect;
 use Excel;

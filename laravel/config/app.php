@@ -141,10 +141,10 @@ return [
         /*
          * Application Service Providers...
          */
-        Cinema\Providers\AppServiceProvider::class,
-        Cinema\Providers\AuthServiceProvider::class,
-        Cinema\Providers\EventServiceProvider::class,
-        Cinema\Providers\RouteServiceProvider::class,
+        SIGALEC\Providers\AppServiceProvider::class,
+        SIGALEC\Providers\AuthServiceProvider::class,
+        SIGALEC\Providers\EventServiceProvider::class,
+        SIGALEC\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
 

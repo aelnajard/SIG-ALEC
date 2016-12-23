@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Providers;
+namespace SIGALEC\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Cinema\Events\SomeEvent' => [
-            'Cinema\Listeners\EventListener',
+        'SIGALEC\Events\SomeEvent' => [
+            'SIGALEC\Listeners\EventListener',
         ],
     ];
 

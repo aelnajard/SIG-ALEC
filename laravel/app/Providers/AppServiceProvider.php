@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Providers;
+namespace SIGALEC\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

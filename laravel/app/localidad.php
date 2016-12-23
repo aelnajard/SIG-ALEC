@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema;
+namespace SIGALEC;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
