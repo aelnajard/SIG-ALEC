@@ -25,5 +25,3 @@ Ejecución
     Listo ya podemos ejecutar el proyecto SIG ALEC.
 
     $ php artisan serve
-
-
