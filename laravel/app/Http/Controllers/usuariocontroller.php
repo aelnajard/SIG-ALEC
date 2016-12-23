@@ -1,14 +1,14 @@
 <?php
 
-namespace Cinema\Http\Controllers;
+namespace SIGALEC\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Cinema\Http\Requests;
-use Cinema\Http\Requests\UserCreateRequest;
-use Cinema\Http\Requests\UserUpdateRequest;
-use Cinema\Http\Controllers\Controller;
-use Cinema\User; /**llamando el modelo*/
+use SIGALEC\Http\Requests;
+use SIGALEC\Http\Requests\UserCreateRequest;
+use SIGALEC\Http\Requests\UserUpdateRequest;
+use SIGALEC\Http\Controllers\Controller;
+use SIGALEC\User; /**llamando el modelo*/
 use Session;
 use Redirect;
 use Excel;

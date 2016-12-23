@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema;
+namespace SIGALEC;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,7 +49,7 @@ class informante extends Model
 
        public function tp_inform_camposema()
     {
-        return $this->hasMany('Cinema\tpinforcamp', 'id_informante', 'id_informante');
+        return $this->hasMany('SIGALEC\tpinforcamp', 'id_informante', 'id_informante');
     }
 
 
@@ -58,7 +58,7 @@ class informante extends Model
 
      {
 
-    return $this->belongsToMany('Cinema\camposem','tp_informante_campo_semantico','id_informante','id_campo_semantico');
+    return $this->belongsToMany('SIGALEC\camposem','tp_informante_campo_semantico','id_informante','id_campo_semantico');
 
      }
 

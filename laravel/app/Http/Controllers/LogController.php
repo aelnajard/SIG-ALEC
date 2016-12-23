@@ -1,15 +1,15 @@
 <?php
 
-namespace Cinema\Http\Controllers;
+namespace SIGALEC\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Cinema\Http\Requests;
+use SIGALEC\Http\Requests;
 use Auth;
 use Session;
 use Redirect;
-use Cinema\Http\Requests\LoginRequest;
-use Cinema\Http\Controllers\Controller;
+use SIGALEC\Http\Requests\LoginRequest;
+use SIGALEC\Http\Controllers\Controller;
 
 class LogController extends Controller
 {

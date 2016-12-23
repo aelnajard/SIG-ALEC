@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema;
+namespace SIGALEC;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,7 +34,7 @@ class camposem extends Model
 
   {
 
-   return $this->belongsToMany('Cinema\informante');
+   return $this->belongsToMany('SIGALEC\informante');
 
   }
 

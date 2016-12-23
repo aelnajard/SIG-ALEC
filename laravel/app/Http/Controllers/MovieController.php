@@ -1,10 +1,10 @@
 <?php
 
-namespace Cinema\Http\Controllers;
+namespace SIGALEC\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Cinema\Http\Requests;
-use Cinema\Http\Controllers\Controller;
+use SIGALEC\Http\Requests;
+use SIGALEC\Http\Controllers\Controller;
 
 class MovieController extends Controller
 {

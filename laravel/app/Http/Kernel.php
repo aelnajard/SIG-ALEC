@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Http;
+namespace SIGALEC\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -13,11 +13,11 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \Cinema\Http\Middleware\EncryptCookies::class,
+        \SIGALEC\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \Cinema\Http\Middleware\VerifyCsrfToken::class,
+        \SIGALEC\Http\Middleware\VerifyCsrfToken::class,
     ];
 
     /**
@@ -26,9 +26,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Cinema\Http\Middleware\Authenticate::class,
+        'auth' => \SIGALEC\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \Cinema\Http\Middleware\RedirectIfAuthenticated::class,
-        'admin' => \Cinema\http\Middleware\Admin::class,
+        'guest' => \SIGALEC\Http\Middleware\RedirectIfAuthenticated::class,
+        'admin' => \SIGALEC\http\Middleware\Admin::class,
     ];
 }

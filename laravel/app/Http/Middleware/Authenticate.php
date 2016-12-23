@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Http\Middleware;
+namespace SIGALEC\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

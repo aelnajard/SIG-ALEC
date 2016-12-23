@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Events;
+namespace SIGALEC\Events;
 
 abstract class Event
 {

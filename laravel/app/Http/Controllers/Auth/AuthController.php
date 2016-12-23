@@ -1,10 +1,10 @@
 <?php
 
-namespace Cinema\Http\Controllers\Auth;
+namespace SIGALEC\Http\Controllers\Auth;
 
-use Cinema\User;
+use SIGALEC\User;
 use Validator;
-use Cinema\Http\Controllers\Controller;
+use SIGALEC\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

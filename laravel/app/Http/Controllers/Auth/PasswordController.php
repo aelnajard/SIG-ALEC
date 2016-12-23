@@ -1,8 +1,8 @@
 <?php
 
-namespace Cinema\Http\Controllers\Auth;
+namespace SIGALEC\Http\Controllers\Auth;
 
-use Cinema\Http\Controllers\Controller;
+use SIGALEC\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
