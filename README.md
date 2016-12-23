@@ -1,5 +1,18 @@
-Proyecto Sistemas de Información Geografica del Atlas Linguistico Etnografico de Colombia
+﻿Proyecto Sistemas de Información Geografica del Atlas Linguistico Etnografico de Colombia
 SIG ALEC
+
+Preparación
+
+    Instalar composer
+
+    https://styde.net/instalacion-de-composer-y-laravel-en-windows/
+
+    La base de datos debe tener las siguientes caracteristicas:
+
+    Nombre Base de datos =Tesis
+    Usuario por defecto postgres =postgres
+    contraseña de postgres =j123
+
 Instalación
 
     Después de descargar el proyecto entramos a este.
