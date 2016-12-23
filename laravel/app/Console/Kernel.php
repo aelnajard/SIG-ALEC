@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Console;
+namespace SIGALEC\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \Cinema\Console\Commands\Inspire::class,
+        \SIGALEC\Console\Commands\Inspire::class,
     ];
 
     /**

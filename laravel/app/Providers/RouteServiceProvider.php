@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Providers;
+namespace SIGALEC\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Cinema\Http\Controllers';
+    protected $namespace = 'SIGALEC\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

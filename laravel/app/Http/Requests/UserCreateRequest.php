@@ -1,8 +1,8 @@
 <?php
 
-namespace Cinema\Http\Requests;
+namespace SIGALEC\Http\Requests;
 
-use Cinema\Http\Requests\Request;
+use SIGALEC\Http\Requests\Request;
 
 class UserCreateRequest extends Request
 {

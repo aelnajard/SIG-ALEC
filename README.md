@@ -1,27 +1,29 @@
-Curso de Laravel 5.1 donde aprenderemos a crear una aplicación web dinámica :D
+Proyecto Sistemas de Información Geografica del Atlas Linguistico Etnografico de Colombia
+SIG ALEC
+Instalación
 
-#Cinema
+    Después de descargar el proyecto entramos a este.
 
-## Instalación
+    $ cd nombreRepositorio
 
-+ Después de descargar el proyecto entramos a este.
+    Ejecutamos el siguiente comando.
 
-        $ cd nombreRepositorio
+    $ composer install
 
-+ Ejecutamos el siguiente comando.
+    Modificamos el nombre del archivo .env.example. por .env y agregamos nuestras credenciales.
 
-        $ composer install
-    
-+ Modificamos el nombre del archivo __.env.example.__ por __.env__ y agregamos nuestras credenciales.
+    Ejecutamos las migraciones.
 
-+ Ejecutamos las migraciones.
+    $ php artisan migrate
 
-        $ php artisan migrate
+    Por ultimo solo debemos generar una key para nuestra app.
 
-+ Por ultimo solo debemos generar una key para nuestra app.
+     $ php artisan key:generate
 
-         $ php artisan key:generate
+Ejecución
 
-+ Listo ya podemos ejecutar el proyecto Cinema.
+    Listo ya podemos ejecutar el proyecto SIG ALEC.
 
-        $ php artisan serve
+    $ php artisan serve
+
+

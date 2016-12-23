@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => Cinema\User::class,
+        'model'  => SIGALEC\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

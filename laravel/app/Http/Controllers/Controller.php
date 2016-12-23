@@ -1,6 +1,6 @@
 <?php
 
-namespace Cinema\Http\Controllers;
+namespace SIGALEC\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
