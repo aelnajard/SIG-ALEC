@@ -43,7 +43,7 @@ class LogController extends Controller
     {
         
         if(Auth::attempt(['email'=>$request['email'], 'password'=>$request['password']])){
-            return Redirect::to('/contacto');
+            return Redirect::to('/visualizacion');
         }
         Session::flash('message-error','Datos Incorrectos');
         return Redirect::to('/');
