@@ -26,7 +26,7 @@
 
             <div class="navbar-header">
        
-                <a class="titulo" href="{!!URL::to('/contacto')!!}" style="text-decoration: none; float:left; color:white; font-family: georgia;">SIG-ALEC</a>
+                <a class="titulo" href="{!!URL::to('/sig')!!}" style="text-decoration: none; float:left; color:white; font-family: georgia;">SIG-ALEC</a>
 
              <ul class="nav navbar-top-links navbar-right" style="margin-left:1220px; color:white;">
                  <li class="dropdon">
