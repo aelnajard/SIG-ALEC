@@ -12,8 +12,7 @@
 */
 
 Route::get('/','FrontController@index');
-Route::resource('contacto','FrontController@contacto');
-Route::get('reviews','FrontController@reviews');
+Route::resource('sig','FrontController@sig');//para renombrar cambiar FrontController, las redirecciones que contengan las vistas y LogController. 
 Route::get('admin','FrontController@admin');
 
 

@@ -11,7 +11,7 @@ class FrontController extends Controller
 
    public function __construct(){
     
-    $this->middleware('auth',['only' => ['admin','contacto','form_cargar_datos_usuarios']]);
+    $this->middleware('auth',['only' => ['admin','sig','form_cargar_datos_usuarios']]);
 
   }
 
@@ -20,12 +20,8 @@ class FrontController extends Controller
         return view('index');
    }
 
-   public function contacto(){
-        return view('contacto');
-   }
-
-   public function reviews(){
-        return view('reviews');
+   public function sig(){
+        return view('sig');
    }
 
    public function admin(){
